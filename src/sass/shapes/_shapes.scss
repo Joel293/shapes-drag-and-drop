@@ -1,0 +1,109 @@
+@use '../base/variables' as v; 
+@use '../base/mixins' as m; 
+
+.shapes {
+    display: flex;
+    flex-direction: column;
+    gap: .03rem;  
+
+    &__models {        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 1rem;
+        border: .3rem solid v.$primary;
+        border-bottom: none;
+        height: 20rem;
+
+        & div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @include m.phone { 
+             //flex
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            height: 15rem;
+        }
+
+    }
+
+    &__empty-models {
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 8rem);
+
+        padding: 3rem 1rem;
+        border: .3rem solid v.$primary;
+        height: calc(100vh - 20rem);
+        background-color: #fcc2f9;
+
+        & div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @include m.phone { 
+            //flex
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           gap: 3rem;
+           height: calc(100vh - 15rem);
+       }
+       
+    }
+
+    &__square {
+        height: 5rem;
+        width: 5rem;
+        background-color: v.$secondary;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--empty {
+            background-color: v.$white;
+            border: .2rem solid v.$secondary;
+        }
+    }
+
+    &__circle {
+        height: 5rem;
+        width: 5rem;
+        border-radius: 50%;
+        background-color: v.$tertiary;
+ 
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--empty {
+            background-color: v.$white;
+            border: .2rem solid v.$tertiary;
+        }
+    }
+
+    &__rectangle {
+        height: 5rem;
+        width: 8rem;
+
+        background-color: v.$green;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--empty {
+            background-color: v.$white;
+            border: .2rem solid v.$green;
+        }
+    }
+}
